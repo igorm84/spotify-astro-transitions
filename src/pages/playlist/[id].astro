@@ -1,0 +1,78 @@
+---
+const { id } = Astro.params;
+import DotsButton from "../../components/DotsButton.astro";
+import InlineArtists from "../../components/InlineArtists.astro";
+import LikeButton from "../../components/LikeButton.astro";
+import PlayButton from "../../components/PlayButton.astro";
+import Layout from "../../layouts/Layout.astro";
+import { allPlaylists } from "../../lib/data";
+import { Icon } from "astro-icon";
+
+export function getStaticPaths() {
+  return allPlaylists.map((playlist) => ({
+    params: {
+      id: playlist.id,
+    },
+  }));
+}
+
+const playlist = allPlaylists.find((playlist) => playlist.id === id);
+---
+
+<Layout title={playlist?.title || "404"}>
+  <div
+    class="relative bg-gradient-to-b from-context pt-8 min-h-full flex flex-col"
+    style=`--context-color:${playlist?.color.accent}`
+    transition:name=`playlist ${playlist?.id} box`
+  >
+    <div class="pb-8 px-6">
+      <a
+        href="/"
+        class="bg-zinc-900 rounded-full inline-flex justify-center items-center h-8 w-8"
+      >
+        <Icon name="bi:chevron-left" class="h-4 w-4 -ml-0.5" />
+      </a>
+    </div>
+    <div class="flex items-stretch gap-8 px-6">
+      <div class="h-52 w-52">
+        <img
+          src={playlist?.cover}
+          class="object-cover h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
+          transition:name=`playlist ${playlist?.id} image`
+        />
+      </div>
+      <div class="flex flex-col justify-between">
+        <div class="flex flex-1 items-end">Playlist</div>
+        <div>
+          <h1 class="text-7xl font-bold block">
+            {playlist?.title}
+            <span transition:name=`playlist ${playlist?.id} title`></span>
+          </h1>
+        </div>
+        <div class="flex-1 flex items-end">
+          <div class="text-sm">
+            <InlineArtists artists={playlist?.artists || []} />
+            <div class="mt-1">
+              <span class="font-semibold">58 likes</span>, 83 musics, <span
+                class="text-gray-300">about 3h 15min</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-zinc-900/30 mt-6 flex-1 p-6">
+      <div class="flex gap-1 items-center">
+        <PlayButton size="lg" />
+        <div class="ml-4"></div>
+        <LikeButton />
+        <DotsButton />
+      </div>
+    </div>
+    <img
+      src={playlist?.cover}
+      class="absolute inset-0 z-[-1] mix-blend-overlay opacity-30 w-full h-full object-cover blur-[30px]"
+    />
+  </div>
+</Layout>

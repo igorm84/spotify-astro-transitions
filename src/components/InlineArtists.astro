@@ -1,0 +1,22 @@
+---
+interface Props {
+  artists: string[];
+}
+
+const { artists } = Astro.props;
+---
+
+{
+  artists.map((artist, index) => {
+    return (
+      <>
+        <a href={"#"} class="hover:underline">
+          {artist}
+        </a>
+        <span class="text-gray-300">
+          {index === artists.length - 1 ? " " : ", "}
+        </span>
+      </>
+    );
+  })
+}

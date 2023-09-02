@@ -1,0 +1,32 @@
+---
+import GreetingTitle from "../components/GreetingTitle.svelte";
+import PlaylistCard from "../components/PlaylistCard.astro";
+import PlaylistItemCard from "../components/PlaylistItemCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { playlists, morePlaylists } from "../lib/data";
+---
+
+<Layout title="Welcome">
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-1000 bg-context px-6 pt-8"
+    style="min-height:300px;--context-color:#134e4a;"
+  >
+    <div class="relative z-10">
+      <GreetingTitle client:visible />
+      <div class="grid gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
+        {playlists.map((playlist) => <PlaylistItemCard playlist={playlist} />)}
+      </div>
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"
+    >
+    </div>
+  </div>
+  <div class="px-6 relative z-10 mt-4">
+    <h2 class="text-2xl font-bold">Made for you</h2>
+    <div class="flex flex-wrap mt-6 gap-4">
+      {morePlaylists.map((playlist) => <PlaylistCard playlist={playlist} />)}
+    </div>
+  </div>
+</Layout>
