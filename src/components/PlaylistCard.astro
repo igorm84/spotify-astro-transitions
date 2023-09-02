@@ -1,6 +1,7 @@
 ---
 import type { Playlist } from "../lib/data";
 import PlayButton from "./PlayButton.astro";
+import PureInlineArtists from "./PureInlineArtists.astro";
 interface Props {
   playlist: Playlist;
 }
@@ -23,6 +24,7 @@ const { playlist } = Astro.props;
       />
       <div
         class="absolute right-2 bottom-2 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all"
+        transition:name=`playlist ${playlist.id} play`
       >
         <PlayButton />
       </div>
@@ -35,14 +37,7 @@ const { playlist } = Astro.props;
         {playlist.title}
       </div>
       <div class="text-gray-400 text-xs">
-        {
-          playlist.artists.map((artist, index) => (
-            <>
-              {artist}
-              {index === playlist.artists.length - 1 ? " " : ", "}
-            </>
-          ))
-        }
+        <PureInlineArtists artists={playlist.artists} />
       </div>
     </div>
   </div>

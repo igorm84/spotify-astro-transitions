@@ -26,6 +26,7 @@ const { playlist } = Astro.props;
   </div>
   <div
     class={"absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"}
+    transition:name=`playlist ${playlist.id} play`
   >
     <PlayButton />
   </div>

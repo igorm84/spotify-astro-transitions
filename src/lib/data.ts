@@ -14,7 +14,7 @@ export const playlists: Playlist[] = [
     title: "Electronic Party",
     color: colors.teal,
     cover:
-      "https://www.visiteosusa.com.br/sites/default/files/styles/hero_l/public/images/hero_media_image/2018-03/1f193ea1be6ff6877e025ed15bc58e04.jpeg?h=2e3eca71&itok=9PJ7t-bf",
+      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776174/spotify-astro/playlist_1_yci5uf.jpg",
     artists: ["Avicii", "Alok"],
   },
   {
@@ -22,7 +22,7 @@ export const playlists: Playlist[] = [
     title: "Trance",
     color: colors.green,
     cover:
-      "https://s3.playbpm.com.br/images/Armin_van_Buuren_reproducao_-_fac.2e16d0ba.fill-1140x450.jpg",
+      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776174/spotify-astro/playlist_2_f9ymlx.jpg",
     artists: ["Tiesto", "Armin Van Buuren"],
   },
   {
@@ -30,7 +30,7 @@ export const playlists: Playlist[] = [
     title: "Trap Vibes",
     color: colors.rose,
     cover:
-      "https://w0.peakpx.com/wallpaper/132/106/HD-wallpaper-travis-scott-purple-glitter-art-black-background-american-rapper-travis-scott-art-jacques-berman-webster-american-singer.jpg",
+      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/playlist_3_grshca.jpg",
     artists: ["Post Malone", "Travis Scott", "21 savage"],
   },
   {
@@ -38,7 +38,7 @@ export const playlists: Playlist[] = [
     title: "Beatles Classics",
     color: colors.red,
     cover:
-      "https://www.rbsdirect.com.br/imagesrc/25391415.jpg?w=1024&h=1024&a=c",
+      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/playlist_4_ap5xnb.jpg",
     artists: ["The Beatles"],
   },
   {
@@ -46,7 +46,7 @@ export const playlists: Playlist[] = [
     title: "Electronic Dance",
     color: colors.pink,
     cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwYMVRyGaYJjpR8UhRIoVm7t88mRQhFwT7Ow&usqp=CAU",
+      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/playlist_5_erjyb7.jpg",
     artists: ["Deadmau5"],
   },
   {
@@ -54,7 +54,7 @@ export const playlists: Playlist[] = [
     title: "Cow songs",
     color: colors.gray,
     cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdCnAE5jlcKD1FzfuDh3AHcdiaqFO6VxiYIw&usqp=CAU",
+      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776474/spotify-astro/R-15112137-1586815179-1911_fsyl58.jpg",
     artists: ["Saint Hilda", "Canada Buffalo"],
   },
 ];
@@ -66,4 +66,107 @@ export const morePlaylists = [
   })),
 ];
 
-export const allPlaylists = [...playlists, ...morePlaylists];
+export const sidebarPlaylists = [
+  ...playlists.map((item) => ({
+    ...item,
+    id: item.id + "_side",
+  })),
+];
+
+export const allPlaylists = [
+  ...playlists,
+  ...morePlaylists,
+  ...sidebarPlaylists,
+];
+
+interface Song {
+  id: string;
+  title: string;
+  image: string;
+  artists: string[];
+  album: string;
+  duration: string;
+}
+const songScale = "w_40,h_40,c_scale";
+export const songs: Song[] = [
+  {
+    id: "1",
+    title: "The Nights",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_1_qitfwl.jpg`,
+    artists: ["Avicii"],
+    album: "The Days / Nights",
+    duration: "2:56",
+  },
+  {
+    id: "2",
+    title: "Saint-Tropez",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_2_cijs8v.jpg`,
+    artists: ["Post Malone"],
+    album: "Hollywood's Bleeding",
+    duration: "2:23",
+  },
+  {
+    id: "3",
+    title: "SICKO MODE",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776176/spotify-astro/song_3_td9ncs.jpg`,
+    artists: ["Travis Scott", "Drake"],
+    album: "ASTROWORLD",
+    duration: "5:13",
+  },
+  {
+    id: "4",
+    title: "Blinding Lights",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776176/spotify-astro/song_4_lwumgu.png`,
+    artists: ["The Weeknd"],
+    album: "After Hours",
+    duration: "3:22",
+  },
+  {
+    id: "5",
+    title: "Shape of You",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_5_rd5xqa.jpg`,
+    artists: ["Ed Sheeran"],
+    album: "÷ (Divide)",
+    duration: "3:53",
+  },
+  {
+    id: "6",
+    title: "Uptown Funk",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_6_f1lt7y.jpg`,
+    artists: ["Mark Ronson", "Bruno Mars"],
+    album: "Uptown Special",
+    duration: "4:30",
+  },
+  {
+    id: "7",
+    title: "Bad Guy",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_7_m7f0mh.jpg`,
+    artists: ["Billie Eilish"],
+    album: "When We All Fall Asleep, Where Do We Go?",
+    duration: "3:14",
+  },
+  {
+    id: "8",
+    title: "Yesterday",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_8_hwxisr.jpg`,
+    artists: ["The Beatles"],
+    album: "Today & Tomorrow",
+    duration: "4:38",
+  },
+  {
+    id: "9",
+    title: "Havana",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776176/spotify-astro/song_9_szemzp.jpg`,
+    artists: ["Camila Cabello", "Young Thug"],
+    album: "Camila",
+    duration: "3:37",
+  },
+  {
+    id: "10",
+    title: "Radioactive",
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776176/spotify-astro/song_10_sz0cib.jpg`,
+    artists: ["Imagine Dragons"],
+    album: "Night Visions",
+    duration: "3:07",
+  },
+];
