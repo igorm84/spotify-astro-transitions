@@ -2,11 +2,22 @@
 import Icon from "astro-icon";
 ---
 
-<div class="py-4 px-6" transition:name="page header" transition:persist>
+<div
+  class="relative z-10 py-4 px-6 flex justify-between"
+  transition:name="page header"
+  transition:persist
+>
   <a
     href="/"
     class="bg-zinc-900 rounded-full inline-flex justify-center items-center h-8 w-8"
   >
     <Icon name="bi:chevron-left" class="h-4 w-4 -ml-0.5" />
+  </a>
+  <a
+    target="_blank"
+    href="https://github.com/igorm84/spotify-astro-transitions"
+    class="text-gray-200 hover:text-white"
+  >
+    <Icon name="mdi:github" class="h-7 w-7" />
   </a>
 </div>
