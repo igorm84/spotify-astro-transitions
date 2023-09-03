@@ -9,7 +9,7 @@ Clone of Spotify with Astro View Transitions integration for fluid navigation + 
 
 ### About
 
-View Transition is a **experimental** mechanism to transition between DOM states
+View Transition is a **experimental** mechanism to transition between DOM states, learn more in these links:
 
-> Astro Documentation: https://docs.astro.build/en/guides/view-transitions/
-> MDN Documentation: https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
+- Astro Documentation: https://docs.astro.build/en/guides/view-transitions/
+- MDN Documentation: https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
