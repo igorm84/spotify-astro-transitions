@@ -3,10 +3,11 @@ const { id } = Astro.params;
 import DotsButton from "../../components/DotsButton.astro";
 import InlineArtists from "../../components/InlineArtists.astro";
 import LikeButton from "../../components/LikeButton.astro";
+import MusicsTable from "../../components/MusicsTable.astro";
+import PageHeader from "../../components/PageHeader.astro";
 import PlayButton from "../../components/PlayButton.astro";
 import Layout from "../../layouts/Layout.astro";
 import { allPlaylists } from "../../lib/data";
-import { Icon } from "astro-icon";
 
 export function getStaticPaths() {
   return allPlaylists.map((playlist) => ({
@@ -21,20 +22,14 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
 
 <Layout title={playlist?.title || "404"}>
   <div
-    class="relative bg-gradient-to-b from-context pt-8 min-h-full flex flex-col"
-    style=`--context-color:${playlist?.color.accent}`
+    class="relative bg-zinc-900 min-h-full flex flex-col overflow-x-hidden rounded-lg"
     transition:name=`playlist ${playlist?.id} box`
   >
-    <div class="pb-8 px-6">
-      <a
-        href="/"
-        class="bg-zinc-900 rounded-full inline-flex justify-center items-center h-8 w-8"
-      >
-        <Icon name="bi:chevron-left" class="h-4 w-4 -ml-0.5" />
-      </a>
-    </div>
-    <div class="flex items-stretch gap-8 px-6">
-      <div class="h-52 w-52">
+    <PageHeader />
+    <div
+      class="flex flex-col items-center md:flex-row md:items-stretch gap-8 px-6"
+    >
+      <div class="h-52 w-52 flex-none">
         <img
           src={playlist?.cover}
           class="object-cover h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
@@ -44,7 +39,7 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
       <div class="flex flex-col justify-between">
         <div class="flex flex-1 items-end">Playlist</div>
         <div>
-          <h1 class="text-7xl font-bold block">
+          <h1 class="title-clamp font-bold block">
             {playlist?.title}
             <span transition:name=`playlist ${playlist?.id} title`></span>
           </h1>
@@ -62,17 +57,36 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
       </div>
     </div>
 
-    <div class="bg-zinc-900/30 mt-6 flex-1 p-6">
+    <div class="bg-zinc-900/30 mt-6 flex-1 p-6 blur-100">
       <div class="flex gap-1 items-center">
         <PlayButton size="lg" />
-        <div class="ml-4"></div>
+        <div class="ml-4" transition:name=`playlist ${playlist?.id} play`></div>
         <LikeButton />
         <DotsButton />
       </div>
+      <div class="px-6 pt-4">
+        <MusicsTable />
+      </div>
     </div>
-    <img
-      src={playlist?.cover}
-      class="absolute inset-0 z-[-1] mix-blend-overlay opacity-30 w-full h-full object-cover blur-[30px]"
-    />
+    <div
+      class="absolute h-screen inset-0 z-[-1] bg-gradient-to-b from-context"
+      style=`--context-color:${playlist?.color.accent}`
+    >
+      <img
+        src={playlist?.cover}
+        class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 scale-90 w-full h-full object-cover blur-md"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t via-transparent from-zinc-900"
+      >
+      </div>
+    </div>
   </div>
 </Layout>
+
+<style>
+  .title-clamp {
+    font-size: clamp(20px, 6vw, 70px);
+    line-height: 1;
+  }
+</style>

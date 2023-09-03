@@ -5,6 +5,8 @@ interface Props {
 
 const { title } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
+import "./layout.css";
+import SideMenu from "../components/Side/SideMenu.astro";
 ---
 
 <!doctype html>
@@ -15,62 +17,18 @@ import { ViewTransitions } from "astro:transitions";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Sand {title}</title>
+    <title>Spotify Astro</title>
     <ViewTransitions />
   </head>
   <body class="dark">
-    <div class="relative h-screen p-4 flex justify-end">
-      <div
-        class="rounded-lg bg-zinc-900 flex-1 max-w-6xl mx-auto overflow-y-auto"
-      >
+    <div class="relative h-screen p-2 gap-2 flex items-stretch">
+      <div class="w-[350px] flex-col hidden lg:flex overflow-y-auto">
+        <SideMenu />
+      </div>
+      <div class="rounded-lg bg-zinc-900 flex-1 mx-auto overflow-y-auto">
         <slot />
       </div>
     </div>
-    <style is:global>
-      :root {
-        --color-primary: theme(colors.green.500);
-        --color-background: theme(colors.zinc.950);
-        --color-foreground: theme(colors.zinc.900);
-      }
-      body {
-        background: var(--color-background);
-        color: white;
-      }
-
-      * {
-        scrollbar-width: 10px;
-        scrollbar-color: rgb(50, 50, 50) rgb(30, 30, 30);
-      }
-      *::-webkit-scrollbar {
-        height: 10px;
-        width: 10px;
-      }
-      *::-webkit-scrollbar-track {
-        border-radius: 5px;
-        background-color: transparent;
-      }
-
-      *::-webkit-scrollbar-track:hover {
-        background-color: rgb(30, 30, 30);
-      }
-
-      *::-webkit-scrollbar-track:active {
-        background-color: rgb(30, 30, 30);
-      }
-
-      *::-webkit-scrollbar-thumb {
-        border-radius: 5px;
-        background-color: rgb(50, 50, 50);
-      }
-
-      *::-webkit-scrollbar-thumb:hover {
-        background-color: rgb(70, 70, 70);
-      }
-
-      *::-webkit-scrollbar-thumb:active {
-        background-color: rgb(70, 70, 70);
-      }
-    </style>
     <script is:inline defer>
       function setContainerColor(dataColor) {
         const playlistContainer = document.getElementById("playlist-container");
@@ -114,6 +72,15 @@ import { ViewTransitions } from "astro:transitions";
           window.coloradTimeout = null;
         }
       }
+    </script>
+    <script>
+      document.addEventListener("astro:after-swap", () => {
+        for (const el of document.querySelectorAll(".el-to-fade")) {
+          setTimeout(() => {
+            el.classList.remove("scale-90");
+          }, 200);
+        }
+      });
     </script>
   </body>
 </html>

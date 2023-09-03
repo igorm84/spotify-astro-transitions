@@ -1,5 +1,6 @@
 ---
 import GreetingTitle from "../components/GreetingTitle.svelte";
+import PageHeader from "../components/PageHeader.astro";
 import PlaylistCard from "../components/PlaylistCard.astro";
 import PlaylistItemCard from "../components/PlaylistItemCard.astro";
 import Layout from "../layouts/Layout.astro";
@@ -9,12 +10,15 @@ import { playlists, morePlaylists } from "../lib/data";
 <Layout title="Welcome">
   <div
     id="playlist-container"
-    class="relative transition-all duration-1000 bg-context px-6 pt-8"
+    class="relative transition-all duration-1000 bg-context"
     style="min-height:300px;--context-color:#134e4a;"
   >
-    <div class="relative z-10">
+    <PageHeader />
+    <div class="relative z-10 px-6">
       <GreetingTitle client:visible />
-      <div class="grid gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
+      <div
+        class="grid gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mt-6"
+      >
         {playlists.map((playlist) => <PlaylistItemCard playlist={playlist} />)}
       </div>
     </div>
