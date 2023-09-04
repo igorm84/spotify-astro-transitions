@@ -29,6 +29,17 @@ import SideMenu from "../components/Side/SideMenu.astro";
         <slot />
       </div>
     </div>
+    <div
+      id="not-support"
+      class="fixed hidden bg-red-700 bottom-0 inset-x-0 rounded-t-md text-center py-2 lg:py-4 z-50 font-semibold"
+    >
+      It seems your browser does not support view transitions yet :( try it
+      using chrome or edge <a
+        class="underline"
+        href="https://github.com/igorm84/spotify-astro-transitions"
+        >(see docs here)</a
+      >
+    </div>
     <script is:inline defer>
       function setContainerColor(dataColor) {
         const playlistContainer = document.getElementById("playlist-container");
@@ -74,6 +85,9 @@ import SideMenu from "../components/Side/SideMenu.astro";
       }
     </script>
     <script>
+      if (!document.startViewTransition) {
+        document.getElementById("not-support").classList.remove("hidden");
+      }
       document.addEventListener("astro:page-load", () => {
         for (const el of document.querySelectorAll(".el-to-fade")) {
           el.classList.remove("scale-90");

@@ -8,8 +8,7 @@ interface Props {
 const { size = "md" } = Astro.props;
 ---
 
-<button
-  type="button"
+<span
   class="bg-green-500 hover:scale-105 shadow-md shadow-black/40 rounded-full flex items-center justify-center text-black"
   class:list={[size === "md" && "h-12 w-12", size === "lg" && "h-14 w-14"]}
 >
@@ -17,4 +16,4 @@ const { size = "md" } = Astro.props;
     name="mdi:play"
     class:list={[size === "md" && "h-8 w-8", size === "lg" && "h-10 w-10"]}
   />
-</button>
+</span>
