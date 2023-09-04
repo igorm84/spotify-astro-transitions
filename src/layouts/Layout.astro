@@ -74,11 +74,9 @@ import SideMenu from "../components/Side/SideMenu.astro";
       }
     </script>
     <script>
-      document.addEventListener("astro:after-swap", () => {
+      document.addEventListener("astro:page-load", () => {
         for (const el of document.querySelectorAll(".el-to-fade")) {
-          setTimeout(() => {
-            el.classList.remove("scale-90");
-          }, 200);
+          el.classList.remove("scale-90");
         }
       });
     </script>
