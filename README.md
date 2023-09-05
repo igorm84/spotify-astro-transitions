@@ -19,7 +19,6 @@ View Transition is a **experimental** mechanism to transition between DOM states
 - MDN Documentation: https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
 
 ### Known issues
-#### Firefox
-Currently Firefox is rendering a strange behavior, I'll be looking for fixes for that
-#### Mobile browsers
-Some mobile browsers aren't playing the animation/transition and/or giving strange behavior when touching the cards (need to touch twice to navigate)
+#### Firefox and iOS Browsers
+Unfornatelly those browsers aren't compatible yet, see
+https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#browser_compatibility
