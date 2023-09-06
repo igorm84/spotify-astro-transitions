@@ -3,7 +3,7 @@ Clone of Spotify with [Astro View Transitions](https://docs.astro.build/en/guide
 ## Deploy
 You can Deploy the example using [Vercel Template](https://vercel.com/templates/astro/view-transitions) or see a [live demo](https://spotify-astro-transitions.vercel.app/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?](https://vercel.com/new/clone?demo-description=Spotify%20clone%20built%20with%20Astro%20View%20Transitions%20integration%20for%20fluid%20navigation%20%2B%20TailwindCSS%20%2B%20Svelte.%0A&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F59uwliGeS8XoE5nHRBEsfI%2F2232d50cdddae956828ddb501ff2d993%2FCleanShot_2023-09-05_at_16.13.01_2x.png&demo-title=Spotify%20Clone%20with%20Astro%20View%20Transitions&demo-url=https%3A%2F%2Fspotify-astro-transitions.vercel.app%2F&from=templates&project-name=Spotify%20Clone%20with%20Astro%20View%20Transitions&repository-name=view-transitions&repository-url=https%3A%2F%2Fgithub.com%2Figorm84%2Fspotify-astro-transitions&skippable-integrations=1))
 ### Social media
 **Oh my god we god 1 million views!😱 Thanks a lot for Astro sharing it and your framework is awesome!**
 https://twitter.com/astrodotbuild/status/1698534383970656497
