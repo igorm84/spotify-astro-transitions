@@ -13,11 +13,23 @@ import Icon from "astro-icon";
   >
     <Icon name="bi:chevron-left" class="h-4 w-4 -ml-0.5" />
   </a>
-  <a
-    target="_blank"
-    href="https://github.com/igorm84/spotify-astro-transitions"
-    class="text-gray-200 hover:text-white"
-  >
-    <Icon name="mdi:github" class="h-7 w-7" />
-  </a>
+  <div class="flex items-center gap-3">
+    <a
+      target="_blank"
+      href="https://vercel.com/templates/astro/view-transitions"
+      class="flex relative overflow-hidden group bg-gradient-to-br from-black/10 to-black/40 rounded-md px-2.5 h-7 text-gray-200 hover:text-white transition-colors gap-1 items-center"
+    >
+      <span class="text-xs">
+        Deploy on <span class="font-bold">Vercel</span>
+      </span>
+      <Icon name="ion:logo-vercel" class="h-4 w-4" />
+    </a>
+    <a
+      target="_blank"
+      href="https://github.com/igorm84/spotify-astro-transitions"
+      class="text-gray-200 hover:text-white"
+    >
+      <Icon name="mdi:github" class="h-7 w-7" />
+    </a>
+  </div>
 </div>
