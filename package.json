@@ -1,7 +1,9 @@
 {
   "name": "spotify-astro-transitions",
+  "description": "Clone of Spotify with Astro View Transitions integration for fluid navigation",
   "type": "module",
   "version": "0.0.1",
+  "author": "https://github.com/igorm84",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

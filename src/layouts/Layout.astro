@@ -1,9 +1,13 @@
 ---
 interface Props {
   title: string;
+  image?: string;
 }
 
-const { title = "Spotify Astro" } = Astro.props;
+const {
+  title = "Home",
+  image = "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776174/spotify-astro/playlist_2_f9ymlx.jpg",
+} = Astro.props;
 import { ViewTransitions } from "astro:transitions";
 import "./layout.css";
 import SideMenu from "../components/Side/SideMenu.astro";
@@ -13,11 +17,16 @@ import SideMenu from "../components/Side/SideMenu.astro";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="Clone of Spotify with Astro View Transitions integration for fluid navigation"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{title} | Spotify Astro</title>
+    <meta property="og:image" content={image} />
+    <meta name="twitter:image" content={image} />
     <ViewTransitions fallback="none" />
   </head>
   <body class="dark">

@@ -20,7 +20,7 @@ export function getStaticPaths() {
 const playlist = allPlaylists.find((playlist) => playlist.id === id);
 ---
 
-<Layout title={playlist?.title || "404"}>
+<Layout image={playlist?.cover} title={playlist?.title || "404"}>
   <div
     class="relative bg-zinc-900 min-h-full flex flex-col overflow-x-hidden rounded-lg"
     transition:name=`playlist ${playlist?.id} box`
