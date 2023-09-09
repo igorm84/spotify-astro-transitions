@@ -19,6 +19,7 @@ const { playlist } = Astro.props;
     <div class="relative group mx-auto h-40 w-full flex-none shadow-lg">
       <img
         src={playlist.cover}
+        alt={playlist.title}
         class="object-cover h-full w-full rounded-md shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
         transition:name=`playlist ${playlist.id} image`
       />

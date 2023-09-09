@@ -18,6 +18,7 @@ const { playlist } = Astro.props;
   <div class="h-12 w-12 flex-none">
     <img
       src={playlist.cover}
+      alt={playlist.title}
       class="object-cover rounded h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
     />
   </div>

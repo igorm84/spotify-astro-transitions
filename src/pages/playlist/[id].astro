@@ -32,6 +32,7 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
       <div class="h-52 w-52 flex-none">
         <img
           src={playlist?.cover}
+          alt={playlist?.title}
           class="object-cover h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
           transition:name=`playlist ${playlist?.id} image`
         />
@@ -74,6 +75,7 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
     >
       <img
         src={playlist?.cover}
+        alt={playlist?.title}
         class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 scale-90 w-full h-full object-cover blur-md"
       />
       <div
