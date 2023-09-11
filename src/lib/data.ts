@@ -13,40 +13,35 @@ export const playlists: Playlist[] = [
     id: "1",
     title: "Electronic Party",
     color: colors.teal,
-    cover:
-      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776174/spotify-astro/playlist_1_yci5uf.jpg",
+    cover: "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776174/spotify-astro/playlist_1_yci5uf.jpg",
     artists: ["Avicii", "Alok"],
   },
   {
     id: "2",
     title: "Trance",
     color: colors.green,
-    cover:
-      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776174/spotify-astro/playlist_2_f9ymlx.jpg",
+    cover: "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776174/spotify-astro/playlist_2_f9ymlx.jpg",
     artists: ["Tiesto", "Armin Van Buuren"],
   },
   {
     id: "3",
     title: "Trap Vibes",
     color: colors.rose,
-    cover:
-      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/playlist_3_grshca.jpg",
+    cover: "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/playlist_3_grshca.jpg",
     artists: ["Post Malone", "Travis Scott", "21 savage"],
   },
   {
     id: "4",
     title: "Beatles Classics",
     color: colors.red,
-    cover:
-      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/playlist_4_ap5xnb.jpg",
+    cover: "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/playlist_4_ap5xnb.jpg",
     artists: ["The Beatles"],
   },
   {
     id: "5",
     title: "Electronic Dance",
     color: colors.pink,
-    cover:
-      "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/playlist_5_erjyb7.jpg",
+    cover: "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/playlist_5_erjyb7.jpg",
     artists: ["Deadmau5"],
   },
   {
@@ -73,11 +68,7 @@ export const sidebarPlaylists = [
   })),
 ];
 
-export const allPlaylists = [
-  ...playlists,
-  ...morePlaylists,
-  ...sidebarPlaylists,
-];
+export const allPlaylists = [...playlists, ...morePlaylists, ...sidebarPlaylists];
 
 interface Song {
   id: string;
