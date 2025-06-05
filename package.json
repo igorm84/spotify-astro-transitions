@@ -9,7 +9,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/svelte": "^4.0.0",
@@ -20,9 +21,15 @@
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "2.5.3",
     "@tailwindcss/typography": "^0.5.9",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/svelte": "^5.2.8",
+    "jsdom": "^26.1.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
-    "prettier-plugin-tailwindcss": "^0.5.4"
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.1"
   }
 }
