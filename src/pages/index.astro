@@ -1,36 +1,124 @@
----
-import GreetingTitle from "../components/GreetingTitle.svelte";
-import PageHeader from "../components/PageHeader.astro";
-import PlaylistCard from "../components/PlaylistCard.astro";
-import PlaylistItemCard from "../components/PlaylistItemCard.astro";
-import Layout from "../layouts/Layout.astro";
-import { playlists, morePlaylists } from "../lib/data";
----
 
-<Layout title="Home">
-  <div
-    id="playlist-container"
-    class="relative transition-all duration-1000 bg-context"
-    style="min-height:300px;--context-color:#134e4a;"
-  >
-    <PageHeader />
-    <div class="relative z-10 px-6">
-      <GreetingTitle client:visible />
-      <div
-        class="grid gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mt-6"
-      >
-        {playlists.map((playlist) => <PlaylistItemCard playlist={playlist} />)}
-      </div>
+// pages/index.js
+import { useState } from "react";
+import { FaPlay, FaPause, FaHeart, FaSearch } from "react-icons/fa";
+import Head from "next/head";
+import Image from "next/image";
+
+// Sample songs (replace with your own)
+const songs = [
+  {
+    id: 1,
+    title: "Blush Dreams",
+    artist: "Luna Rose",
+    cover: "/covers/cover1.jpg",
+    src: "/music/song1.mp3",
+  },
+  {
+    id: 2,
+    title: "Cherry Sunset",
+    artist: "Aurora Sky",
+    cover: "/covers/cover2.jpg",
+    src: "/music/song2.mp3",
+  },
+  {
+    id: 3,
+    title: "Pastel Nights",
+    artist: "Violet Moon",
+    cover: "/covers/cover3.jpg",
+    src: "/music/song3.mp3",
+  },
+];
+
+export default function Home() {
+  const [currentSong, setCurrentSong] = useState(songs[0]);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const selectSong = (song) => {
+    setCurrentSong(song);
+    setIsPlaying(true);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-pink-50 to-pink-100 text-gray-800 font-sans">
+      <Head>
+        <title>Pinkify Music</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      {/* Navbar */}
+      <nav className="flex justify-between items-center p-4 bg-pink-200 shadow-md sticky top-0 z-50 rounded-b-xl">
+        <h1 className="text-2xl font-bold text-pink-700">Pinkify 🎀</h1>
+        <div className="flex items-center space-x-4">
+          <input
+            type="text"
+            placeholder="Search songs..."
+            className="px-3 py-1 rounded-lg border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition"
+          />
+          <FaSearch className="text-pink-700 text-lg" />
+        </div>
+      </nav>
+
+      {/* Song Grid */}
+      <main className="p-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {songs.map((song) => (
+          <div
+            key={song.id}
+            className="bg-white rounded-xl shadow-lg hover:scale-105 transform transition duration-300 cursor-pointer overflow-hidden"
+            onClick={() => selectSong(song)}
+          >
+            <div className="relative w-full h-48">
+              <Image
+                src={song.cover}
+                alt={song.title}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-t-xl"
+              />
+            </div>
+            <div className="p-4">
+              <h2 className="font-semibold text-lg text-pink-700">{song.title}</h2>
+              <p className="text-gray-500">{song.artist}</p>
+              <div className="mt-2 flex justify-between items-center">
+                <button
+                  onClick={handlePlayPause}
+                  className="bg-pink-400 hover:bg-pink-500 text-white px-3 py-1 rounded-full shadow-sm transition"
+                >
+                  {isPlaying && currentSong.id === song.id ? <FaPause /> : <FaPlay />}
+                </button>
+                <FaHeart className="text-pink-600 hover:text-pink-800 transition cursor-pointer" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </main>
+
+      {/* Fixed Player */}
+      <footer className="fixed bottom-0 left-0 w-full bg-pink-100 p-4 shadow-lg flex items-center justify-between rounded-t-xl">
+        <div className="flex items-center space-x-4">
+          <Image
+            src={currentSong.cover}
+            alt={currentSong.title}
+            width={60}
+            height={60}
+            className="rounded-lg"
+          />
+          <div>
+            <h3 className="font-semibold text-pink-700">{currentSong.title}</h3>
+            <p className="text-gray-600">{currentSong.artist}</p>
+          </div>
+        </div>
+        <button
+          onClick={handlePlayPause}
+          className="bg-pink-400 hover:bg-pink-500 text-white px-4 py-2 rounded-full shadow-sm transition"
+        >
+          {isPlaying ? <FaPause /> : <FaPlay />}
+        </button>
+      </footer>
     </div>
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"
-    >
-    </div>
-  </div>
-  <div class="px-6 relative z-10 mt-4">
-    <h2 class="text-2xl font-bold">Made for you</h2>
-    <div class="flex flex-wrap mt-6 gap-4">
-      {morePlaylists.map((playlist) => <PlaylistCard playlist={playlist} />)}
-    </div>
-  </div>
-</Layout>
+  );
+}
