@@ -34,10 +34,5 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "^6.0.3"
-  },
-  "overrides": {
-    "mdast-util-to-hast": "13.2.1",
-    "picomatch": "4.0.5",
-    "yaml": "2.9.0"
   }
 }
