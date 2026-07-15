@@ -1,6 +1,4 @@
 ---
-import Icon from "astro-icon";
-
 interface Props {
   size?: "md" | "lg";
 }
@@ -13,8 +11,19 @@ const { size = "md" } = Astro.props;
   class="text-gray-400 hover:text-gray-300 rounded-full flex items-center justify-center"
   class:list={[size === "md" && "h-12 w-12", size === "lg" && "h-14 w-14"]}
 >
-  <Icon
-    name="tabler:dots"
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
     class:list={[size === "md" && "h-8 w-8", size === "lg" && "h-8 w-8"]}
-  />
+  >
+    <g class="icon-tabler">
+      <circle cx="5" cy="12" r="1"></circle>
+      <circle cx="12" cy="12" r="1"></circle>
+      <circle cx="19" cy="12" r="1"></circle>
+    </g>
+  </svg>
 </button>

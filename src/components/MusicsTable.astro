@@ -1,7 +1,6 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import { songs } from "../lib/data";
-import PureInlineArtists from "./PureInlineArtists.astro";
 import InlineArtists from "./InlineArtists.astro";
 ---
 
@@ -12,7 +11,7 @@ import InlineArtists from "./InlineArtists.astro";
       <th class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
       <th class="font-normal px-4 py-2 whitespace-nowrap">Album</th>
       <th class="font-normal px-4 py-2 whitespace-nowrap text-right">
-        <Icon name="carbon:time" class="inline-block h-5 w-5" />
+        <Icon name="carbon:time" is:inline class="inline-block h-5 w-5" />
       </th>
     </tr>
   </thead>

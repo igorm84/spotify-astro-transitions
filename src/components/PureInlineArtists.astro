@@ -6,11 +6,4 @@ interface Props {
 const { artists } = Astro.props;
 ---
 
-{
-  artists.map((artist, index) => (
-    <>
-      {artist}
-      {index === artists.length - 1 ? " " : ", "}
-    </>
-  ))
-}
+{artists.join(", ")}

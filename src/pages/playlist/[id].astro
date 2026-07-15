@@ -70,7 +70,7 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
       </div>
     </div>
     <div
-      class="absolute h-screen inset-0 z-[-1] bg-gradient-to-b from-context"
+      class="absolute h-screen inset-0 z-[-1] bg-linear-to-b/srgb from-context"
       style=`--context-color:${playlist?.color.accent}`
     >
       <img
@@ -79,7 +79,7 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
         class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 scale-90 w-full h-full object-cover blur-md"
       />
       <div
-        class="absolute inset-0 bg-gradient-to-t via-transparent from-zinc-900"
+        class="absolute inset-0 bg-linear-to-t/srgb via-transparent from-zinc-900"
       >
       </div>
     </div>

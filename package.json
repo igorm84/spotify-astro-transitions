@@ -4,25 +4,35 @@
   "type": "module",
   "version": "0.0.1",
   "author": "https://github.com/igorm84",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "check": "astro check",
+    "format:check": "prettier --check .",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/svelte": "^4.0.0",
-    "@astrojs/tailwind": "^5.0.0",
-    "astro": "^3.0.7",
-    "astro-icon": "^0.8.1",
-    "svelte": "^4.0.0",
-    "tailwindcss": "^3.0.24"
+    "@astrojs/svelte": "^9.0.1",
+    "@iconify-json/bi": "^1.2.7",
+    "@iconify-json/carbon": "^1.2.24",
+    "@iconify-json/ion": "^1.2.7",
+    "@iconify-json/mdi": "^1.2.3",
+    "@tailwindcss/vite": "^4.3.2",
+    "astro": "^7.0.9",
+    "astro-icon": "^1.1.5",
+    "svelte": "^5.56.5",
+    "tailwindcss": "^4.3.2"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.9",
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0",
-    "prettier-plugin-tailwindcss": "^0.5.4"
+    "@astrojs/check": "^0.9.9",
+    "prettier": "^3.9.5",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "^6.0.3"
   }
 }

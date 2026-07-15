@@ -1,5 +1,5 @@
 ---
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 type Props = {
   href?: string;
@@ -14,7 +14,7 @@ const { href, iconName } = Astro.props;
     {href}
     class="flex gap-4 text-zinc-400 hover:text-zinc-100 py-3.5 px-5 font-semibold transition-all duration-300"
   >
-    <Icon name={iconName} class="h-6 w-6" />
+    <Icon name={iconName} is:inline class="h-6 w-6" />
     <slot />
   </a>
 </li>
