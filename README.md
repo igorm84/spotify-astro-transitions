@@ -1,4 +1,4 @@
-# Spotify clone with Astro View Transitions [![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
+# Spotify clone with Astro 7 View Transitions [![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
 
 A Spotify-inspired interface using Astro's [client router and View Transitions](https://docs.astro.build/en/guides/view-transitions/) for fluid navigation. The example also uses Tailwind CSS and Svelte.
 
@@ -36,6 +36,8 @@ View Transitions animate between DOM states. Learn more in these links:
 - Astro Documentation: https://docs.astro.build/en/guides/view-transitions/
 - MDN Documentation: https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API
 
-### Known issues
+### Browser support
 
-This project intentionally configures Astro's client router with `fallback="none"`. Browsers without the View Transition API still navigate, but use full-page navigation without animation. See [MDN's current compatibility data](https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition#browser_compatibility).
+Native same-document View Transitions are supported in Chrome and Edge 111+, Firefox 144+, Safari and iOS 18+, and corresponding mobile browsers. [MDN marks the feature as Baseline 2025](https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition#browser_compatibility).
+
+This project intentionally configures Astro's client router with `fallback="none"`. Older browsers still navigate, but use full-page navigation without animation.
