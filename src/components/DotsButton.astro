@@ -8,10 +8,12 @@ const { size = "md" } = Astro.props;
 
 <button
   type="button"
+  aria-label="More options"
   class="text-gray-400 hover:text-gray-300 rounded-full flex items-center justify-center"
   class:list={[size === "md" && "h-12 w-12", size === "lg" && "h-14 w-14"]}
 >
   <svg
+    aria-hidden="true"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
