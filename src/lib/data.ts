@@ -66,19 +66,6 @@ export const morePlaylists = [
   })),
 ];
 
-export const sidebarPlaylists = [
-  ...playlists.map((item) => ({
-    ...item,
-    id: item.id + "_side",
-  })),
-];
-
-export const allPlaylists = [
-  ...playlists,
-  ...morePlaylists,
-  ...sidebarPlaylists,
-];
-
 interface Song {
   id: string;
   title: string;
