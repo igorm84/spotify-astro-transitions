@@ -111,14 +111,20 @@ import SideMenu from "../components/Side/SideMenu.astro";
           );
           playlist.addEventListener("blur", clearHoverColorTimeout);
         }
+      }
 
+      function revealFadedElements() {
         for (const el of document.querySelectorAll(".el-to-fade")) {
           el.classList.remove("scale-90");
         }
       }
 
       document.addEventListener("astro:before-swap", clearHoverColorTimeout);
-      document.addEventListener("astro:page-load", initializePageBehavior);
+      document.addEventListener("astro:page-load", () => {
+        initializePageBehavior();
+        revealFadedElements();
+      });
+      window.addEventListener("load", revealFadedElements, { once: true });
       initializePageBehavior();
     </script>
   </body>
