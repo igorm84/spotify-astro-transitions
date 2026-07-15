@@ -8,7 +8,7 @@ const {
   title = "Home",
   image = "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776174/spotify-astro/playlist_2_f9ymlx.jpg",
 } = Astro.props;
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import "./layout.css";
 import SideMenu from "../components/Side/SideMenu.astro";
 ---
@@ -27,7 +27,7 @@ import SideMenu from "../components/Side/SideMenu.astro";
     <title>{title} | Spotify Astro</title>
     <meta property="og:image" content={image} />
     <meta name="twitter:image" content={image} />
-    <ViewTransitions fallback="none" />
+    <ClientRouter fallback="none" />
   </head>
   <body class="dark">
     <div class="relative h-screen p-2 gap-2 flex items-stretch">
@@ -95,7 +95,7 @@ import SideMenu from "../components/Side/SideMenu.astro";
     </script>
     <script>
       if (!document.startViewTransition) {
-        document.getElementById("not-support").classList.remove("hidden");
+        document.getElementById("not-support")?.classList.remove("hidden");
       }
       document.addEventListener("astro:page-load", () => {
         for (const el of document.querySelectorAll(".el-to-fade")) {

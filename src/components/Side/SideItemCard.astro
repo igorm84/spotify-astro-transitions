@@ -1,7 +1,5 @@
 ---
 import type { Playlist } from "../../lib/data";
-import InlineArtists from "../InlineArtists.astro";
-import PlayButton from "../PlayButton.astro";
 import PureInlineArtists from "../PureInlineArtists.astro";
 interface Props {
   playlist: Playlist;
@@ -12,7 +10,7 @@ const { playlist } = Astro.props;
 
 <a
   href={`/playlist/${playlist.id}`}
-  class="playlist-item flex group relative p-2 overflow-hidden items-center gap-5 rounded-md shadow-lg hover:shadow-xl outline-none hover:bg-zinc-500/10 focus:bg-zinc-500/50"
+  class="playlist-item flex group relative p-2 overflow-hidden items-center gap-5 rounded-md shadow-lg hover:shadow-xl outline-hidden hover:bg-zinc-500/10 focus:bg-zinc-500/50"
   data-color={playlist.color.dark}
 >
   <div class="h-12 w-12 flex-none">

@@ -1,7 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-context: var(--context-color);
+  --color-green-500: #22c55e;
+  --color-red-700: #b91c1c;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+}
+
+.bg-context,
+.from-context {
+  --color-context: var(--context-color);
+}
+
+/* Preserve Tailwind 3 colors while using Tailwind 4's CSS-first engine. */
+.bg-zinc-500\/5 {
+  background-color: #71717a0d;
+}
+.bg-zinc-500\/30 {
+  background-color: #71717a4d;
+}
+.bg-zinc-900\/30 {
+  background-color: #18181b4d;
+}
+.hover\:bg-gray-500\/20:hover {
+  background-color: #6b728033;
+}
+.hover\:bg-zinc-500\/10:hover {
+  background-color: #71717a1a;
+}
+.hover\:bg-zinc-500\/20:hover,
+.focus\:bg-zinc-500\/20:focus {
+  background-color: #71717a33;
+}
+.hover\:bg-zinc-500\/50:hover,
+.focus\:bg-zinc-500\/50:focus {
+  background-color: #71717a80;
+}
+.divide-gray-500\/30 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #6b72804d;
+}
+.divide-y-2 > :not(:last-child) {
+  border-bottom-width: 0;
+}
+.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
+}
+.from-black\/10 {
+  --tw-gradient-from: rgb(0 0 0 / 0.1);
+  --tw-gradient-to: rgb(0 0 0 / 0);
+}
+.from-context {
+  --tw-gradient-from: var(--context-color);
+  --tw-gradient-to: rgb(255 255 255 / 0);
+}
+.from-zinc-900 {
+  --tw-gradient-from: #18181b;
+  --tw-gradient-to: rgb(24 24 27 / 0);
+}
+.via-zinc-900\/80 {
+  --tw-gradient-via: rgb(24 24 27 / 0.8);
+  --tw-gradient-to: rgb(24 24 27 / 0);
+}
+.to-black\/40 {
+  --tw-gradient-to: rgb(0 0 0 / 0.4);
+}
+.shadow-black\/40 {
+  --tw-shadow-color: rgb(0 0 0 / 0.4);
+}
+
 :root {
-  --color-primary: theme(colors.green.500);
-  --color-background: theme(colors.zinc.950);
-  --color-foreground: theme(colors.zinc.900);
+  --color-primary: var(--color-green-500);
+  --color-background: var(--color-zinc-950);
+  --color-foreground: var(--color-zinc-900);
 }
 body {
   background: var(--color-background);
