@@ -42,66 +42,90 @@ import SideMenu from "../components/Side/SideMenu.astro";
       id="not-support"
       class="fixed hidden bg-red-700 bottom-0 inset-x-0 rounded-t-md text-center py-2 lg:py-4 z-50 font-semibold"
     >
-      It seems your browser does not support view transitions yet :( try it
-      using chrome or edge <a
+      View transitions are unavailable in this browser. Navigation still works
+      without animations. <a
         class="underline"
         href="https://github.com/igorm84/spotify-astro-transitions"
         >(see docs here)</a
       >
     </div>
-    <script is:inline defer>
-      function setContainerColor(dataColor) {
+    <script>
+      const HOVER_COLOR_DELAY = 200;
+      const initializedPlaylistItems = new WeakSet<HTMLElement>();
+      let hoverColorTimeout: ReturnType<typeof setTimeout> | undefined;
+
+      function setContainerColor(color: string) {
         const playlistContainer = document.getElementById("playlist-container");
-        const currentColor = playlistContainer?.getAttribute("data-color");
-        if (dataColor && dataColor !== currentColor) {
-          playlistContainer?.style.setProperty("--context-color", dataColor);
-          playlistContainer?.setAttribute("data-color", dataColor);
+
+        if (color !== playlistContainer?.dataset.color) {
+          playlistContainer?.style.setProperty("--context-color", color);
+          playlistContainer?.setAttribute("data-color", color);
         }
       }
 
-      window.coloradTimeout = null;
-      for (const playlist of document.querySelectorAll(".playlist-item")) {
-        playlist.addEventListener("mouseover", () =>
-          onMouseOverColorad(playlist)
-        );
-        playlist.addEventListener("mouseout", onMouseOutColorad);
-        playlist.addEventListener("focus", () => onMouseFocusColorad(playlist));
-        playlist.addEventListener("blur", onMouseOutColorad);
-      }
-
-      function onMouseFocusColorad(el) {
-        if (el) {
-          const dataColor = el.getAttribute("data-color");
-          if (!dataColor) return;
-          setContainerColor(dataColor);
+      function clearHoverColorTimeout() {
+        if (hoverColorTimeout !== undefined) {
+          clearTimeout(hoverColorTimeout);
+          hoverColorTimeout = undefined;
         }
       }
-      function onMouseOverColorad(el) {
-        if (el) {
-          const dataColor = el.getAttribute("data-color");
-          if (!dataColor) return;
-          window.coloradTimeout = setTimeout(
-            () => setContainerColor(dataColor),
-            200
+
+      function getPlaylistColor(playlist: HTMLElement) {
+        return playlist.dataset.color;
+      }
+
+      function updateColorFromFocus(playlist: HTMLElement) {
+        const color = getPlaylistColor(playlist);
+
+        if (color) setContainerColor(color);
+      }
+
+      function updateColorFromHover(playlist: HTMLElement) {
+        const color = getPlaylistColor(playlist);
+
+        if (color) {
+          hoverColorTimeout = setTimeout(
+            () => setContainerColor(color),
+            HOVER_COLOR_DELAY
           );
         }
       }
-      function onMouseOutColorad() {
-        if (window.coloradTimeout) {
-          clearTimeout(window.coloradTimeout);
-          window.coloradTimeout = null;
+
+      function initializePageBehavior() {
+        if (typeof document.startViewTransition !== "function") {
+          document.getElementById("not-support")?.classList.remove("hidden");
+        }
+
+        for (const playlist of document.querySelectorAll<HTMLElement>(
+          ".playlist-item"
+        )) {
+          if (initializedPlaylistItems.has(playlist)) continue;
+
+          initializedPlaylistItems.add(playlist);
+          playlist.addEventListener("mouseover", () =>
+            updateColorFromHover(playlist)
+          );
+          playlist.addEventListener("mouseout", clearHoverColorTimeout);
+          playlist.addEventListener("focus", () =>
+            updateColorFromFocus(playlist)
+          );
+          playlist.addEventListener("blur", clearHoverColorTimeout);
         }
       }
-    </script>
-    <script>
-      if (!document.startViewTransition) {
-        document.getElementById("not-support")?.classList.remove("hidden");
-      }
-      document.addEventListener("astro:page-load", () => {
+
+      function revealFadedElements() {
         for (const el of document.querySelectorAll(".el-to-fade")) {
           el.classList.remove("scale-90");
         }
+      }
+
+      document.addEventListener("astro:before-swap", clearHoverColorTimeout);
+      document.addEventListener("astro:page-load", () => {
+        initializePageBehavior();
+        revealFadedElements();
       });
+      window.addEventListener("load", revealFadedElements, { once: true });
+      initializePageBehavior();
     </script>
   </body>
 </html>
