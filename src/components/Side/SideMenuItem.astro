@@ -10,11 +10,23 @@ const { href, iconName } = Astro.props;
 ---
 
 <li>
-  <a
-    {href}
-    class="flex gap-4 text-zinc-400 hover:text-zinc-100 py-3.5 px-5 font-semibold transition-all duration-300"
-  >
-    <Icon name={iconName} is:inline class="h-6 w-6" />
-    <slot />
-  </a>
+  {
+    href ? (
+      <a
+        {href}
+        class="flex gap-4 text-zinc-400 hover:text-zinc-100 py-3.5 px-5 font-semibold transition-all duration-300"
+      >
+        <Icon name={iconName} is:inline class="h-6 w-6" />
+        <slot />
+      </a>
+    ) : (
+      <button
+        type="button"
+        class="flex w-full gap-4 text-left text-zinc-400 hover:text-zinc-100 py-3.5 px-5 font-semibold transition-all duration-300"
+      >
+        <Icon name={iconName} is:inline class="h-6 w-6" />
+        <slot />
+      </button>
+    )
+  }
 </li>

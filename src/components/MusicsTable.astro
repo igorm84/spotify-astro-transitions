@@ -29,24 +29,22 @@ import InlineArtists from "./InlineArtists.astro";
               />
             </div>
             <div class="leading-none">
-              <a
-                href="#"
+              <span
                 class="text-gray-300 group-hover:text-white hover:underline text-sm"
               >
                 {song.title}
-              </a>
+              </span>
               <div class="text-sm text-gray-300 group-hover:text-white">
                 <InlineArtists artists={song.artists} />
               </div>
             </div>
           </td>
           <td class="whitespace-nowrap px-4 py-2">
-            <a
-              href="#"
+            <span
               class="text-gray-300 group-hover:text-white hover:underline text-sm"
             >
               {song.album}
-            </a>
+            </span>
           </td>
           <td class="whitespace-nowrap px-4 py-2 text-right">
             {song.duration}
