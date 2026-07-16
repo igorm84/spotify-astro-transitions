@@ -7,10 +7,12 @@ import MusicsTable from "../../components/MusicsTable.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import PlayButton from "../../components/PlayButton.astro";
 import Layout from "../../layouts/Layout.astro";
-import { allPlaylists } from "../../lib/data";
+import { morePlaylists, playlists } from "../../lib/data";
+
+const allPlaylists = [...playlists, ...morePlaylists];
 
 export function getStaticPaths() {
-  return allPlaylists.map((playlist) => ({
+  return [...playlists, ...morePlaylists].map((playlist) => ({
     params: {
       id: playlist.id,
     },

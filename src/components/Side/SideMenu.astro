@@ -1,6 +1,6 @@
 ---
 import SideMenuItem from "./SideMenuItem.astro";
-import { sidebarPlaylists } from "../../lib/data";
+import { playlists } from "../../lib/data";
 import SideItemCard from "./SideItemCard.astro";
 ---
 
@@ -19,7 +19,7 @@ import SideItemCard from "./SideItemCard.astro";
       </SideMenuItem>
     </ul>
     <ul class="pl-2">
-      {sidebarPlaylists.map((playlist) => <SideItemCard {playlist} />)}
+      {playlists.map((playlist) => <SideItemCard {playlist} />)}
     </ul>
   </div>
 </div>
