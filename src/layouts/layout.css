@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  /* Keep the production font stack when Tailwind's defaults change. */
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
   --color-context: var(--context-color);
   --color-green-500: #22c55e;
   --color-red-700: #b91c1c;

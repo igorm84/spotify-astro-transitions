@@ -4,7 +4,7 @@ A Spotify-inspired interface using Astro's [client router and View Transitions](
 
 ## Local development
 
-Node.js 22.12 or newer and [Bun](https://bun.sh/) are required.
+Node.js 22.22 or newer and [Bun](https://bun.sh/) are required.
 
 ```sh
 bun install
