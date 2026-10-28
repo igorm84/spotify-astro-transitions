@@ -6,16 +6,14 @@ const component = readFileSync(
   new URL("../src/components/GreetingTitle.astro", import.meta.url),
   "utf8",
 );
-const script = component.match(/<script>([\s\S]*?)<\/script>/)[1];
+const script = component.match(/<script[^>]*>([\s\S]*?)<\/script>/)[1];
 
 function createHarness(initialHour) {
   let hour = initialHour;
   let heading = { textContent: "Welcome back" };
-  const listeners = new Map();
-  vm.runInNewContext(script, {
+  const context = vm.createContext({
     document: {
       getElementById: () => heading,
-      addEventListener: (name, callback) => listeners.set(name, callback),
     },
     Date: class extends Date {
       getHours() {
@@ -23,12 +21,14 @@ function createHarness(initialHour) {
       }
     },
   });
+  vm.runInContext(script, context);
   return {
     getHeading: () => heading,
     navigate(nextHour, hasHeading) {
       hour = nextHour;
       heading = hasHeading ? { textContent: "Welcome back" } : null;
-      listeners.get("astro:page-load")();
+      // Astro reruns this inline script when the greeting is present on a new page.
+      if (hasHeading) vm.runInContext(script, context);
     },
   };
 }
@@ -58,4 +58,14 @@ test("home to playlist to home refreshes the visitor-local greeting", () => {
   expect(harness.getHeading()).toBeNull();
   harness.navigate(12, true);
   expect(harness.getHeading().textContent).toBe("Good afternoon");
+});
+
+test("initial greeting runs synchronously and Astro reruns it on navigation", () => {
+  expect(component).toMatch(/<script is:inline data-astro-rerun>/);
+  expect(component).not.toContain('type="module"');
+  const harness = createHarness(9);
+  harness.navigate(19, true);
+  expect(harness.getHeading().textContent).toBe("Good night");
+  harness.navigate(9, true);
+  expect(harness.getHeading().textContent).toBe("Good morning");
 });

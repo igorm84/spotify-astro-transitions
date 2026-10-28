@@ -2,8 +2,8 @@
   Welcome back
 </h1>
 
-<script>
-  function updateGreeting() {
+<script is:inline data-astro-rerun>
+  (() => {
     const title = document.getElementById("greeting-title");
     if (!title) return;
 
@@ -14,8 +14,5 @@
         : hour >= 12 && hour < 18
           ? "Good afternoon"
           : "Good night";
-  }
-
-  document.addEventListener("astro:page-load", updateGreeting);
-  updateGreeting();
+  })();
 </script>
