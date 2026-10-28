@@ -8,6 +8,7 @@ import PageHeader from "../../components/PageHeader.astro";
 import PlayButton from "../../components/PlayButton.astro";
 import Layout from "../../layouts/Layout.astro";
 import { morePlaylists, playlists } from "../../lib/data";
+import { getCloudinaryImageUrl } from "../../lib/images";
 
 const allPlaylists = [...playlists, ...morePlaylists];
 
@@ -20,6 +21,7 @@ export function getStaticPaths() {
 }
 
 const playlist = allPlaylists.find((playlist) => playlist.id === id);
+if (!playlist) throw new Error(`Unknown playlist: ${id}`);
 ---
 
 <Layout image={playlist?.cover} title={playlist?.title || "404"}>
@@ -33,7 +35,13 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
     >
       <div class="h-52 w-52 flex-none">
         <img
-          src={playlist?.cover}
+          src={getCloudinaryImageUrl(playlist.cover, 208)}
+          srcset={`${getCloudinaryImageUrl(playlist.cover, 208)} 208w, ${getCloudinaryImageUrl(playlist.cover, 416)} 416w`}
+          sizes="208px"
+          width="208"
+          height="208"
+          fetchpriority="high"
+          decoding="async"
           alt={playlist?.title}
           class="object-cover h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
           transition:name=`playlist ${playlist?.id} image`
@@ -83,8 +91,14 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
       style=`--context-color:${playlist?.color.accent}`
     >
       <img
-        src={playlist?.cover}
-        alt={playlist?.title}
+        src={getCloudinaryImageUrl(playlist.cover, 640)}
+        srcset={`${getCloudinaryImageUrl(playlist.cover, 640)} 640w, ${getCloudinaryImageUrl(playlist.cover, 1280)} 1280w`}
+        sizes="(min-width: 1024px) calc(100vw - 382px), calc(100vw - 16px)"
+        width="640"
+        height="640"
+        loading="lazy"
+        decoding="async"
+        alt=""
         class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 scale-90 w-full h-full object-cover blur-md"
       />
       <div

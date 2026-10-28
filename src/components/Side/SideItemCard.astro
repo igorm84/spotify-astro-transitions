@@ -1,4 +1,5 @@
 ---
+import { getCloudinaryImageUrl } from "../../lib/images";
 import type { Playlist } from "../../lib/data";
 import PureInlineArtists from "../PureInlineArtists.astro";
 interface Props {
@@ -15,7 +16,13 @@ const { playlist } = Astro.props;
 >
   <div class="h-12 w-12 flex-none">
     <img
-      src={playlist.cover}
+      src={getCloudinaryImageUrl(playlist.cover, 48)}
+      srcset={`${getCloudinaryImageUrl(playlist.cover, 48)} 48w, ${getCloudinaryImageUrl(playlist.cover, 96)} 96w`}
+      sizes="48px"
+      width="48"
+      height="48"
+      loading="lazy"
+      decoding="async"
       alt={playlist.title}
       class="object-cover rounded h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
     />

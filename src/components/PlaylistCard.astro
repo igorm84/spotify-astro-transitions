@@ -1,4 +1,5 @@
 ---
+import { getCloudinaryImageUrl } from "../lib/images";
 import type { Playlist } from "../lib/data";
 import PlayButton from "./PlayButton.astro";
 import PureInlineArtists from "./PureInlineArtists.astro";
@@ -18,7 +19,13 @@ const { playlist } = Astro.props;
   <div class="w-40">
     <div class="relative group mx-auto h-40 w-full flex-none shadow-lg">
       <img
-        src={playlist.cover}
+        src={getCloudinaryImageUrl(playlist.cover, 160)}
+        srcset={`${getCloudinaryImageUrl(playlist.cover, 160)} 160w, ${getCloudinaryImageUrl(playlist.cover, 320)} 320w`}
+        sizes="160px"
+        width="160"
+        height="160"
+        loading="lazy"
+        decoding="async"
         alt={playlist.title}
         class="object-cover h-full w-full rounded-md shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
         transition:name=`playlist ${playlist.id} image`

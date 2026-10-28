@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { songs } from "../lib/data";
+import { getCloudinaryImageUrl } from "../lib/images";
 import InlineArtists from "./InlineArtists.astro";
 ---
 
@@ -29,7 +30,13 @@ import InlineArtists from "./InlineArtists.astro";
           <td class="whitespace-nowrap px-4 py-2 flex gap-3 items-center">
             <div class="h-10 w-10">
               <img
-                src={song.image}
+                src={getCloudinaryImageUrl(song.image, 40)}
+                srcset={`${getCloudinaryImageUrl(song.image, 40)} 40w, ${getCloudinaryImageUrl(song.image, 80)} 80w`}
+                sizes="40px"
+                width="40"
+                height="40"
+                loading="lazy"
+                decoding="async"
                 alt=""
                 class="rounded object-cover h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
               />

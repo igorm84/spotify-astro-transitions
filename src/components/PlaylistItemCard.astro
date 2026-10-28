@@ -1,4 +1,5 @@
 ---
+import { getCloudinaryImageUrl } from "../lib/images";
 import type { Playlist } from "../lib/data";
 import PlayButton from "./PlayButton.astro";
 interface Props {
@@ -14,9 +15,14 @@ const { playlist } = Astro.props;
   data-color={playlist.color.dark}
   transition:name=`playlist ${playlist.id} box`
 >
-  <div class="h-20 w-20">
+  <div class="h-20 w-20 flex-none">
     <img
-      src={playlist.cover}
+      src={getCloudinaryImageUrl(playlist.cover, 80)}
+      srcset={`${getCloudinaryImageUrl(playlist.cover, 80)} 80w, ${getCloudinaryImageUrl(playlist.cover, 160)} 160w`}
+      sizes="80px"
+      width="80"
+      height="80"
+      decoding="async"
       alt={playlist.title}
       class="object-cover h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
       transition:name=`playlist ${playlist.id} image`

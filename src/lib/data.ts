@@ -74,12 +74,11 @@ interface Song {
   album: string;
   duration: string;
 }
-const songScale = "w_40,h_40,c_scale";
 export const songs: Song[] = [
   {
     id: "1",
     title: "The Nights",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_1_qitfwl.jpg`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/song_1_qitfwl.jpg`,
     artists: ["Avicii"],
     album: "The Days / Nights",
     duration: "2:56",
@@ -87,7 +86,7 @@ export const songs: Song[] = [
   {
     id: "2",
     title: "Saint-Tropez",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_2_cijs8v.jpg`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/song_2_cijs8v.jpg`,
     artists: ["Post Malone"],
     album: "Hollywood's Bleeding",
     duration: "2:23",
@@ -95,7 +94,7 @@ export const songs: Song[] = [
   {
     id: "3",
     title: "SICKO MODE",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776176/spotify-astro/song_3_td9ncs.jpg`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776176/spotify-astro/song_3_td9ncs.jpg`,
     artists: ["Travis Scott", "Drake"],
     album: "ASTROWORLD",
     duration: "5:13",
@@ -103,7 +102,7 @@ export const songs: Song[] = [
   {
     id: "4",
     title: "Blinding Lights",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776176/spotify-astro/song_4_lwumgu.png`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776176/spotify-astro/song_4_lwumgu.png`,
     artists: ["The Weeknd"],
     album: "After Hours",
     duration: "3:22",
@@ -111,7 +110,7 @@ export const songs: Song[] = [
   {
     id: "5",
     title: "Shape of You",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_5_rd5xqa.jpg`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/song_5_rd5xqa.jpg`,
     artists: ["Ed Sheeran"],
     album: "÷ (Divide)",
     duration: "3:53",
@@ -119,7 +118,7 @@ export const songs: Song[] = [
   {
     id: "6",
     title: "Uptown Funk",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_6_f1lt7y.jpg`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/song_6_f1lt7y.jpg`,
     artists: ["Mark Ronson", "Bruno Mars"],
     album: "Uptown Special",
     duration: "4:30",
@@ -127,7 +126,7 @@ export const songs: Song[] = [
   {
     id: "7",
     title: "Bad Guy",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_7_m7f0mh.jpg`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/song_7_m7f0mh.jpg`,
     artists: ["Billie Eilish"],
     album: "When We All Fall Asleep, Where Do We Go?",
     duration: "3:14",
@@ -135,7 +134,7 @@ export const songs: Song[] = [
   {
     id: "8",
     title: "Yesterday",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776175/spotify-astro/song_8_hwxisr.jpg`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776175/spotify-astro/song_8_hwxisr.jpg`,
     artists: ["The Beatles"],
     album: "Today & Tomorrow",
     duration: "4:38",
@@ -143,7 +142,7 @@ export const songs: Song[] = [
   {
     id: "9",
     title: "Havana",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776176/spotify-astro/song_9_szemzp.jpg`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776176/spotify-astro/song_9_szemzp.jpg`,
     artists: ["Camila Cabello", "Young Thug"],
     album: "Camila",
     duration: "3:37",
@@ -151,7 +150,7 @@ export const songs: Song[] = [
   {
     id: "10",
     title: "Radioactive",
-    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/${songScale}/v1693776176/spotify-astro/song_10_sz0cib.jpg`,
+    image: `https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776176/spotify-astro/song_10_sz0cib.jpg`,
     artists: ["Imagine Dragons"],
     album: "Night Visions",
     duration: "3:07",
