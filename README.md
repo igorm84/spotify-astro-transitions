@@ -15,6 +15,7 @@ Run the migration checks before submitting changes:
 
 ```sh
 bun run check
+bun run test
 bun run build
 bun run format:check
 ```

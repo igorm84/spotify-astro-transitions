@@ -13,6 +13,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "test": "bun test",
     "format:check": "prettier --check .",
     "astro": "astro"
   },
