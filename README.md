@@ -1,6 +1,6 @@
 # Spotify clone with Astro 7 View Transitions [![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
 
-A Spotify-inspired interface using Astro's [client router and View Transitions](https://docs.astro.build/en/guides/view-transitions/) for fluid navigation. The example also uses Tailwind CSS and Svelte.
+A Spotify-inspired interface using Astro's [client router and View Transitions](https://docs.astro.build/en/guides/view-transitions/) for fluid navigation. The example also uses Tailwind CSS.
 
 ## Local development
 
@@ -15,6 +15,7 @@ Run the migration checks before submitting changes:
 
 ```sh
 bun run check
+bun run test
 bun run build
 bun run format:check
 ```
