@@ -7,11 +7,17 @@ import InlineArtists from "./InlineArtists.astro";
 <table class="table-auto text-left min-w-full divide-y-2 divide-gray-500/30">
   <thead>
     <tr class="text-gray-300">
-      <th class="font-normal px-4 py-2 whitespace-nowrap">#</th>
-      <th class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
-      <th class="font-normal px-4 py-2 whitespace-nowrap">Album</th>
-      <th class="font-normal px-4 py-2 whitespace-nowrap text-right">
-        <Icon name="carbon:time" is:inline class="inline-block h-5 w-5" />
+      <th scope="col" class="font-normal px-4 py-2 whitespace-nowrap">#</th>
+      <th scope="col" class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
+      <th scope="col" class="font-normal px-4 py-2 whitespace-nowrap">Album</th>
+      <th scope="col" class="font-normal px-4 py-2 whitespace-nowrap text-right">
+        <span class="sr-only">Duration</span>
+        <Icon
+          name="carbon:time"
+          is:inline
+          aria-hidden="true"
+          class="inline-block h-5 w-5"
+        />
       </th>
     </tr>
   </thead>
@@ -24,7 +30,7 @@ import InlineArtists from "./InlineArtists.astro";
             <div class="h-10 w-10">
               <img
                 src={song.image}
-                alt={song.title}
+                alt=""
                 class="rounded object-cover h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
               />
             </div>

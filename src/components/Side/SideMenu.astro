@@ -19,7 +19,13 @@ import SideItemCard from "./SideItemCard.astro";
       </SideMenuItem>
     </ul>
     <ul class="pl-2">
-      {playlists.map((playlist) => <SideItemCard {playlist} />)}
+      {
+        playlists.map((playlist) => (
+          <li>
+            <SideItemCard {playlist} />
+          </li>
+        ))
+      }
     </ul>
   </div>
 </div>
