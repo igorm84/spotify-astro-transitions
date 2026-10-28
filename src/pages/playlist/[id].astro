@@ -68,7 +68,14 @@ const playlist = allPlaylists.find((playlist) => playlist.id === id);
         <DotsButton />
       </div>
       <div class="px-6 pt-4">
-        <MusicsTable />
+        <div
+          role="region"
+          aria-label="Playlist songs"
+          tabindex="0"
+          class="overflow-x-auto rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+        >
+          <MusicsTable />
+        </div>
       </div>
     </div>
     <div

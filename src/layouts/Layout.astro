@@ -31,12 +31,15 @@ import SideMenu from "../components/Side/SideMenu.astro";
   </head>
   <body class="dark">
     <div class="relative h-screen p-2 gap-2 flex items-stretch">
-      <div class="w-[350px] flex-col hidden lg:flex overflow-y-auto">
+      <nav
+        aria-label="Main navigation"
+        class="w-[350px] flex-col hidden lg:flex overflow-y-auto"
+      >
         <SideMenu />
-      </div>
-      <div class="rounded-lg bg-zinc-900 flex-1 mx-auto overflow-y-auto">
+      </nav>
+      <main class="rounded-lg bg-zinc-900 flex-1 mx-auto overflow-y-auto">
         <slot />
-      </div>
+      </main>
     </div>
     <div
       id="not-support"
