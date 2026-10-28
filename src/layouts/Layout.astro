@@ -75,17 +75,22 @@ import SideMenu from "../components/Side/SideMenu.astro";
       }
 
       function updateColorFromFocus(playlist: HTMLElement) {
+        clearHoverColorTimeout();
         const color = getPlaylistColor(playlist);
 
         if (color) setContainerColor(color);
       }
 
       function updateColorFromHover(playlist: HTMLElement) {
+        clearHoverColorTimeout();
         const color = getPlaylistColor(playlist);
 
         if (color) {
           hoverColorTimeout = setTimeout(
-            () => setContainerColor(color),
+            () => {
+              hoverColorTimeout = undefined;
+              setContainerColor(color);
+            },
             HOVER_COLOR_DELAY
           );
         }
@@ -102,10 +107,10 @@ import SideMenu from "../components/Side/SideMenu.astro";
           if (initializedPlaylistItems.has(playlist)) continue;
 
           initializedPlaylistItems.add(playlist);
-          playlist.addEventListener("mouseover", () =>
+          playlist.addEventListener("mouseenter", () =>
             updateColorFromHover(playlist)
           );
-          playlist.addEventListener("mouseout", clearHoverColorTimeout);
+          playlist.addEventListener("mouseleave", clearHoverColorTimeout);
           playlist.addEventListener("focus", () =>
             updateColorFromFocus(playlist)
           );
