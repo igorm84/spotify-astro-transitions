@@ -1,0 +1,18 @@
+<h1 id="greeting-title" class="text-3xl font-bold">
+  Welcome back
+</h1>
+
+<script is:inline data-astro-rerun>
+  (() => {
+    const title = document.getElementById("greeting-title");
+    if (!title) return;
+
+    const hour = new Date().getHours();
+    title.textContent =
+      hour >= 5 && hour < 12
+        ? "Good morning"
+        : hour >= 12 && hour < 18
+          ? "Good afternoon"
+          : "Good night";
+  })();
+</script>
