@@ -42,3 +42,7 @@ View Transitions animate between DOM states. Learn more in these links:
 Native same-document View Transitions are supported in Chrome and Edge 111+, Firefox 144+, Safari and iOS 18+, and corresponding mobile browsers. [MDN marks the feature as Baseline 2025](https://developer.mozilla.org/en-US/docs/Web/API/Document/startViewTransition#browser_compatibility).
 
 This project intentionally configures Astro's client router with `fallback="none"`. Older browsers still navigate, but use full-page navigation without animation.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
