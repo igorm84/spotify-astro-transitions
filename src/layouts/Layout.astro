@@ -5,7 +5,7 @@ interface Props {
 }
 
 const {
-  title = "Home",
+  title,
   image = "https://res.cloudinary.com/dp3ppkxo5/image/upload/v1693776174/spotify-astro/playlist_2_f9ymlx.jpg",
 } = Astro.props;
 import { ClientRouter } from "astro:transitions";
@@ -21,7 +21,7 @@ import SideMenu from "../components/Side/SideMenu.astro";
       name="description"
       content="Clone of Spotify with Astro View Transitions integration for fluid navigation"
     />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | Spotify Astro</title>
