@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "author": "https://github.com/igorm84",
   "engines": {
-    "node": ">=22.22.0"
+    "node": ">=22.23.4"
   },
   "scripts": {
     "dev": "astro dev",
@@ -23,7 +23,7 @@
     "@iconify-json/ion": "^1.2.7",
     "@iconify-json/mdi": "^1.2.3",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.4.0",
+    "astro": "^7.4.12",
     "astro-icon": "^1.2.0",
     "tailwindcss": "^4.3.3"
   },
