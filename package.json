@@ -23,7 +23,7 @@
     "@iconify-json/ion": "^1.2.7",
     "@iconify-json/mdi": "^1.2.3",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.4.0",
+    "astro": "^7.4.12",
     "astro-icon": "^1.2.0",
     "tailwindcss": "^4.3.3"
   },
